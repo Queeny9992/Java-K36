@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="homwork.css" />
+  </head>
+  <body>
+    <!--  Cach lam bt
+    -Bước 1: tạo 1 form nhập liệu
+    -Bước 2: chạy JS cho form nhập liêuj
+    -Chạy JS điều kiện :
+    +, nếu trường nhập liệu trống (cả 4 ô đều bắt buộc nhập) sẽ trả về assert nhăc nhở: Vui lòng điền vào trường này
+    +, nếu trường hợp Nếu nhập liệu sẽ có điều kiện : chiều dài >5 và <10
+    -->
+    <div id="login-form">
+      <form id="form-login" role="form">
+        <table>
+          <tr>
+            <td>Username</td>
+            <td><input id="username" type="text" /></td>
+            <td>
+              <label style="display: none" id="username-error" class="error">
+                Vui lòng điền vào trường này
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td><input id="password" type="password" /></td>
+            <td>
+              <label style="display: none" id="password-error" class="error">
+                Vui lòng điền vào trường này
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><input id="email" type="text" /></td>
+            <td>
+              <label style="display: none" id="email-error" class="error">
+                Vui lòng điền vào trường này
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>FullName</td>
+            <td><input id="fullname" type="text" /></td>
+            <td display="none">
+              <label style="display: none" id="fullname-error" class="error">
+                Vui lòng điền vào trường này
+              </label>
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <button onclick="checkform()">Submit</button>
+    </div>
+  </body>
+  <script>
+    function checkform() {
+      checkEmty();
+      checkInput();
+    }
+    function checkInput() {
+      let username = document.querySelector("#username").value.trim();
+      let password = document.querySelector("#password").value.trim();
+      let email = document.querySelector("#email").value.trim();
+      let fullname = document.querySelector("#fullname").value.trim();
+      if (username != "") {
+        if (username.length <= 5 || username.length >= 10) {
+          document.querySelector("#username-error").style.display = "block";
+          document.querySelector("#username-error").innerHTML =
+            "Do dai hop le la lon hon 5 va nho hon 10";
+        }
+      }
+      if (password != "") {
+        if (password.length <= 5 || password.length >= 10) {
+          document.querySelector("#password-error").style.display = "block";
+          document.querySelector("#password-error").innerHTML =
+            "Do dai hop le la lon hon 5 va nho hon 10";
+        }
+      }
+      if (email != "") {
+        if (email.length <= 5 || email.length >= 10) {
+          document.querySelector("#email-error").style.display = "block";
+          document.querySelector("#email-error").innerHTML =
+            "Do dai hop le la lon hon 5 va nho hon 10";
+        }
+      }
+      if (fullname != "") {
+        if (fullname.length <= 5 || fullname.length >= 10) {
+          document.querySelector("#fullname-error").style.display = "block";
+          document.querySelector("#fullname-error").innerHTML =
+            "Do dai hop le la lon hon 5 va nho hon 10";
+        }
+      }
+    }
+    function checkEmty() {
+      let username = document.querySelector("#username").value.trim();
+      let password = document.querySelector("#password").value.trim();
+      let email = document.querySelector("#email").value.trim();
+      let fullname = document.querySelector("#fullname").value.trim();
+
+      if (username === "") {
+        document.querySelector("#username-error").style.display = "block";
+        document.querySelector("#username-error").style.color = "red";
+      } else {
+        document.querySelector("#username-error").style.display = "none";
+      }
+      if (password === "") {
+        document.querySelector("#password-error").style.display = "block";
+        document.querySelector("#password-error").style.color = "red";
+      } else {
+        document.querySelector("#password-error").style.display = "none";
+      }
+      if (email === "") {
+        document.querySelector("#email-error").style.display = "block";
+        document.querySelector("#email-error").style.color = "red";
+      } else {
+        document.querySelector("#email-error").style.display = "none";
+      }
+      if (fullname === "") {
+        document.querySelector("#fullname-error").style.display = "block";
+        document.querySelector("#fullname-error").style.color = "red";
+      } else {
+        document.querySelector("#fullname-error").style.display = "none";
+      }
+    }
+  </script>
+</html>
